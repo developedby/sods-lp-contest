@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version O-2018.06-SP4 for linux64 -- Nov 27, 2018
-#@ # Date:   Mon Jun 19 09:24:38 2023
+#@ # Date:   Mon Jun 19 10:20:37 2023
 #@ # Run by: s311270@worksynthesis
 #@ 
 
@@ -6660,15 +6660,15 @@ source ./scripts/synthesis.tcl
 #@ lappend search_path "./tech/${technology}"
 #@ 
 #@ set link_library ""
-#@ #lappend link_library "CORE65LPSVT_bc_1.30V_m40C.db"
-#@ #lappend link_library "CORE65LPSVT_wc_1.10V_125C.db"
-#@ #lappend link_library "CORE65LPSVT_nom_1.20V_25C.db"
+#@ lappend link_library "CORE65LPSVT_bc_1.30V_m40C.db"
+#@ lappend link_library "CORE65LPSVT_wc_1.10V_125C.db"
+#@ lappend link_library "CORE65LPSVT_nom_1.20V_25C.db"
 #@ lappend link_library "CORE65LPLVT_nom_1.20V_25C.db"
 #@ lappend link_library "CORE65LPHVT_nom_1.20V_25C.db"
 #@ 
 #@ set target_library ""
-#@ lappend target_library [lindex $link_library 0]
-#@ lappend target_library [lindex $link_library 1]
+#@ lappend target_library [lindex $link_library 3]
+#@ lappend target_library [lindex $link_library 4]
 #@ # -- End source ./tech/STcmos65/synopsys_dc.setup
 
 #@ 
@@ -6697,7 +6697,9 @@ source ./scripts/synthesis.tcl
 #@ ######################################################################
 #@ 
 #@ # DEFINE CIRCUITS and WORK DIRS
-#@ set blockName "c1908"
+#@ # set blockName "c1908"
+#@ # set blockName "c5315"
+#@ set blockName "c432"
 #@ set active_design $blockName
 #@ 
 #@ # DEFINE WORK DIRS
@@ -6731,8 +6733,8 @@ source ./scripts/synthesis.tcl
 #@ ## DEFINE DESIGN ENVIRONMENT
 #@ ##
 #@ ######################################################################
-#@ set_operating_condition -library  "${target_library}:CORE65LPLVT" nom_1.20V_25C
-#@ set_wire_load_model -library "${target_library}:CORE65LPLVT" -name area_12Kto18K [find design *]
+#@ set_operating_condition -library  "[lindex $target_library 0]:CORE65LPLVT" nom_1.20V_25C
+#@ set_wire_load_model -library "[lindex $target_library 0]:CORE65LPSVT" -name area_12Kto18K [find design *]
 #@ set_load 0.05 [all_outputs]
 #@ 
 #@ ######################################################################
@@ -6741,7 +6743,7 @@ source ./scripts/synthesis.tcl
 #@ ##
 #@ ######################################################################
 #@ source "./rtl/${blockName}/sdc/${blockName}.sdc"
-#@ # -- Starting source ./rtl/c1908/sdc/c1908.sdc
+#@ # -- Starting source ./rtl/c432/sdc/c432.sdc
 
 #@ set sdc_version 1.3
 #@ 
@@ -6765,7 +6767,7 @@ source ./scripts/synthesis.tcl
 #@ 
 #@ ;# Set area constraint
 #@ set_max_area 0
-#@ # -- End source ./rtl/c1908/sdc/c1908.sdc
+#@ # -- End source ./rtl/c432/sdc/c432.sdc
 
 #@ 
 #@ ######################################################################
@@ -6776,7 +6778,9 @@ source ./scripts/synthesis.tcl
 #@ link
 #@ ungroup -all -flatten
 #@ 
-#@ compile
+#@ set_attribute [find library CORE65LPLVT] default_threshold_voltage_group LVT -type string
+#@ set_attribute [find_library CORE65LPHVT] default_threshold_voltage_group HVT -type string
+#@ compile_ultra
 #@ 
 #@ optimize_registers -clock $clockName -minimum_period_only
 #@ set_fix_hold $clockName
@@ -6789,7 +6793,7 @@ source ./scripts/synthesis.tcl
 #@ 
 #@ write -format verilog -hierarchy -output "${dirname}/${blockName}_postsyn.v"
 #@ write_sdc -version 1.3 "${dirname}/${blockName}_postsyn.sdc"
-#@ 
+#@ report_threshold_voltage_group
 #@ ######################################################################
 #@ ##
 #@ ## CLEAN & EXIT

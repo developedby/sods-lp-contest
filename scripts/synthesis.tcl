@@ -44,7 +44,9 @@ suppress_message RTDC-126
 ######################################################################
 
 # DEFINE CIRCUITS and WORK DIRS
-set blockName "c1908"
+# set blockName "c1908"
+# set blockName "c5315"
+set blockName "c432"
 set active_design $blockName
 
 # DEFINE WORK DIRS
@@ -78,8 +80,8 @@ elaborate -lib $blockName $blockName
 ## DEFINE DESIGN ENVIRONMENT
 ##
 ######################################################################
-set_operating_condition -library  "${target_library}:CORE65LPLVT" nom_1.20V_25C
-set_wire_load_model -library "${target_library}:CORE65LPSVT" -name area_12Kto18K [find design *]
+set_operating_condition -library  "[lindex $target_library 0]:CORE65LPLVT" nom_1.20V_25C
+set_wire_load_model -library "[lindex $target_library 0]:CORE65LPSVT" -name area_12Kto18K [find design *]
 set_load 0.05 [all_outputs]
 
 ######################################################################
@@ -97,7 +99,9 @@ source "./rtl/${blockName}/sdc/${blockName}.sdc"
 link
 ungroup -all -flatten
 
-compile
+set_attribute [find library CORE65LPLVT] default_threshold_voltage_group LVT -type string
+set_attribute [find_library CORE65LPHVT] default_threshold_voltage_group HVT -type string
+compile_ultra
 
 optimize_registers -clock $clockName -minimum_period_only
 set_fix_hold $clockName
@@ -110,7 +114,7 @@ compile -incremental_mapping -map_effort high -ungroup_all
 
 write -format verilog -hierarchy -output "${dirname}/${blockName}_postsyn.v"
 write_sdc -version 1.3 "${dirname}/${blockName}_postsyn.sdc"
-
+report_threshold_voltage_group
 ######################################################################
 ##
 ## CLEAN & EXIT
