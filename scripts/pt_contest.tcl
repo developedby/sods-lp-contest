@@ -61,7 +61,7 @@ set in_sdc_filename "${dir}/${blockName}_postsyn.sdc"
 # READ
 read_verilog $in_verilog_filename
 read_sdc -version 1.3 $in_sdc_filename
-exit
+
 update_timing -full
 
 ######################################################################
@@ -84,7 +84,7 @@ foreach_in_collection cell [get_cells] {
 
 set slackThreshold 0.05
 set maxFanoutEndpointCost 0.4
-exit
+
 # Run dualVth assignment
 # Please, replace N with the Group ID
 source ./scripts/dualVth_Group_N.tcl

@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version O-2018.06-SP4 for linux64 -- Nov 27, 2018
-#@ # Date:   Mon Jun 19 05:37:33 2023
+#@ # Date:   Mon Jun 19 09:24:38 2023
 #@ # Run by: s311270@worksynthesis
 #@ 
 
@@ -6660,14 +6660,15 @@ source ./scripts/synthesis.tcl
 #@ lappend search_path "./tech/${technology}"
 #@ 
 #@ set link_library ""
-#@ lappend link_library "CORE65LPSVT_bc_1.30V_m40C.db"
-#@ lappend link_library "CORE65LPSVT_wc_1.10V_125C.db"
-#@ lappend link_library "CORE65LPSVT_nom_1.20V_25C.db"
+#@ #lappend link_library "CORE65LPSVT_bc_1.30V_m40C.db"
+#@ #lappend link_library "CORE65LPSVT_wc_1.10V_125C.db"
+#@ #lappend link_library "CORE65LPSVT_nom_1.20V_25C.db"
 #@ lappend link_library "CORE65LPLVT_nom_1.20V_25C.db"
 #@ lappend link_library "CORE65LPHVT_nom_1.20V_25C.db"
 #@ 
 #@ set target_library ""
-#@ lappend target_library [lindex $link_library 2]
+#@ lappend target_library [lindex $link_library 0]
+#@ lappend target_library [lindex $link_library 1]
 #@ # -- End source ./tech/STcmos65/synopsys_dc.setup
 
 #@ 
@@ -6730,8 +6731,8 @@ source ./scripts/synthesis.tcl
 #@ ## DEFINE DESIGN ENVIRONMENT
 #@ ##
 #@ ######################################################################
-#@ set_operating_condition -library  "${target_library}:CORE65LPSVT" nom_1.20V_25C
-#@ set_wire_load_model -library "${target_library}:CORE65LPSVT" -name area_12Kto18K [find design *]
+#@ set_operating_condition -library  "${target_library}:CORE65LPLVT" nom_1.20V_25C
+#@ set_wire_load_model -library "${target_library}:CORE65LPLVT" -name area_12Kto18K [find design *]
 #@ set_load 0.05 [all_outputs]
 #@ 
 #@ ######################################################################
