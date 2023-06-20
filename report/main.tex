@@ -1,0 +1,78 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\documentclass[11pt]{article}
+
+% Remove the "review" option to generate the final version.
+\usepackage[]{main}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+\usepackage{flushend}
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{float}
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+\setlength\titlebox{3cm}
+\usepackage{graphicx}
+\graphicspath{{./img/}}
+%
+% and set <dim> to something 5cm or larger.
+\title{Low-Power Contest Project Report, Group 27\\Synthesis and Optimization of Digital Systems\\June 2023}
+
+\author{Nicolas Abril \\ S313391 \And  
+        Pouyan Asgari \\ S289607 \And
+        Andrés Zambrano \\ S311270}
+
+\begin{document}
+
+\maketitle
+
+\section{Section 1}
+
+\subsection{Subsection 1}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu ultrices vitae auctor eu augue ut lectus. Lacus luctus accumsan tortor posuere ac ut. Morbi quis commodo odio aenean sed adipiscing diam donec adipiscing. Turpis cursus in hac habitasse platea dictumst quisque sagittis purus. Ut tellus elementum sagittis vitae et. Duis ultricies lacus sed turpis tincidunt. Consequat id porta nibh venenatis cras sed felis eget velit. Neque egestas congue quisque egestas diam in arcu cursus. Risus ultricies tristique nulla aliquet enim.
+
+\subsubsection{Subsubsection 1}
+
+\emph{Note 1}
+
+\begin{itemize}[noitemsep]
+  \item Item 1
+  \item Item 2
+  \item Item 3
+\end{itemize}
+
+\section{Section 2}
+
+\subsection{Subsection 2}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu ultrices vitae auctor eu augue ut lectus. Lacus luctus accumsan tortor posuere ac ut. Morbi quis commodo odio aenean sed adipiscing diam donec adipiscing. Turpis cursus in hac habitasse platea dictumst quisque sagittis purus. Ut tellus elementum sagittis vitae et. Duis ultricies lacus sed turpis tincidunt. Consequat id porta nibh venenatis cras sed felis eget velit. Neque egestas congue quisque egestas diam in arcu cursus. Risus ultricies tristique nulla aliquet enim.
+
+\subsubsection{Subsubsection 2}
+
+\emph{Note 1}
+
+\begin{itemize}[noitemsep]
+  \item Item 1
+  \item Item 2
+  \item Item 3
+\end{itemize}
+
+\end{document}
