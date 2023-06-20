@@ -45,8 +45,8 @@ suppress_message RTDC-126
 
 # DEFINE CIRCUITS and WORK DIRS
 # set blockName "c1908"
-# set blockName "c5315"
-set blockName "c432"
+set blockName "c5315"
+# set blockName "c432"
 set active_design $blockName
 
 # DEFINE WORK DIRS
@@ -81,7 +81,7 @@ elaborate -lib $blockName $blockName
 ##
 ######################################################################
 set_operating_condition -library  "[lindex $target_library 0]:CORE65LPLVT" nom_1.20V_25C
-set_wire_load_model -library "[lindex $target_library 0]:CORE65LPSVT" -name area_12Kto18K [find design *]
+set_wire_load_model -library "[lindex $target_library 0]:CORE65LPLVT" -name area_12Kto18K [find design *]
 set_load 0.05 [all_outputs]
 
 ######################################################################
