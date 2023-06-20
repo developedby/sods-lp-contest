@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1687288633 "c:/Dev/sods-lp-contest/report/main.tex" "main.pdf" "main" 1687288634 0
+["pdflatex"] 1687297222 "c:/Dev/sods-lp-contest/report/main.tex" "main.pdf" "main" 1687297223 0
   "C:/Users/andre/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1674677023 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/andre/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1674649141 23172981 ce86dcc5d9152dc19e70b517e18d8251 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -95,11 +95,11 @@
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/sttools/flushend.sty" 1634199215 28406 d50b1f1e09a8ea19dbf64f26f6df71ab ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
-  "c:/Dev/sods-lp-contest/report/main.tex" 1687288534 3797 bc4cddd02719d9db4f2bf8b30ec32f97 ""
-  "main.aux" 1687288634 554 e6f85c6f44bbe194532b4fa1fd8ca02c "pdflatex"
-  "main.out" 1687288634 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "c:/Dev/sods-lp-contest/report/main.tex" 1687297149 3871 b451bd76c72efc5a4ad1b8fdc1e50e92 ""
+  "main.aux" 1687297223 554 e6f85c6f44bbe194532b4fa1fd8ca02c "pdflatex"
+  "main.out" 1687297223 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "main.sty" 1687288631 11157 3a5d22208367dd68ad6aec1c94a18346 ""
-  "main.tex" 1687288534 3797 bc4cddd02719d9db4f2bf8b30ec32f97 ""
+  "main.tex" 1687297149 3871 b451bd76c72efc5a4ad1b8fdc1e50e92 ""
   (generated)
   "main.aux"
   "main.log"
