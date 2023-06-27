@@ -81,10 +81,8 @@ proc check_contest_constrainsts {slackThreshold maxFanoutEndpointCost} {
 
 proc dualVth {slackThreshold maxFanoutEndpointCost} {
     set all_cells [swap_to_HVT]
-    set num_iters 0
 
     while { [check_contest_constrainsts $slackThreshold $maxFanoutEndpointCost] == 0 } {
-        incr num_iters
         set hvt_cells [get_cells -filter "lib_cell.threshold_voltage_group == HVT"]
         set start_time_calculations [clock milliseconds]
         set min_avg_var [get_slack_avg $hvt_cells $slackThreshold]
@@ -94,10 +92,10 @@ proc dualVth {slackThreshold maxFanoutEndpointCost} {
         set stdev_slack [lindex $min_avg_var 1]
         set slacks [lindex $min_avg_var 2]
 
-        if {$num_iters == 1} {
-            set check_condition [expr $avg_slack + (0.3 * $stdev_slack)]
+        if {$avg_slack < 0} {
+            set check_condition [expr $avg_slack + (0.3 * abs($avg_slack))]
         } else {
-            set check_condition [expr $avg_slack - (0.3 * $stdev_slack)]
+            set check_condition [expr $avg_slack - (0.7 * $avg_slack)]
         }
         
         foreach cell $slacks {
